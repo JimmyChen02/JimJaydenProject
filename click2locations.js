@@ -39,3 +39,13 @@ function createCircle(x, y, radius, color) {
     circle.setAttribute("fill", color);
     return circle
 }
+// movement
+
+let pupil = document.getElementsByClassName("pupil")
+canvas.addEventListener('mousemove', move, false)
+function move(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    canvas.style.left = x + "px";
+    canvas.style.top = y + "px";
+}
