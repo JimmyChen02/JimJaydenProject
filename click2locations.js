@@ -37,7 +37,7 @@ function createCircle(x, y, radius, color) {
     circle.setAttribute("cy", y);
     circle.setAttribute("r", radius);
     circle.setAttribute("fill", color);
-    return circle
+    return circle;
 }
 // movement
 
