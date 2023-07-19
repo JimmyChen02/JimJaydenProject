@@ -42,15 +42,44 @@ function addRandomGhost(event) {
     //pupils
     ghost.appendChild(createCircle(cx-eyeSpacing, cy, headRadius/9, "black"));
     ghost.appendChild(createCircle(cx+eyeSpacing, cy, headRadius/9, "black"));
+    ghosts.push(ghost);
+    //move eyes
 }
+canvas.addEventListener('mousemove', move, false);
+function move(event) {
+    for (let ghost of ghosts) {
+        for(let i = 6; i<8; i++) {
+            let dx = 0;
+            let dy = 0;
+            let tx = event.offsetX;
+            let ty = event.offsetY;
+            let eye = ghost.getElementsByTagName("circle")[i - 2];
+            let pupil = ghost.getElementsByTagName("circle")[i]
+            let ox = Number(eye.getAttribute("cx"));
+            let oy = Number(eye.getAttribute("cy"));
+            let ds = eyeRadius - pupilRadius;
+            if (tx != ox) {
+                let m = (ty - oy) / (tx - ox);
+                dx = Math.sign(tx-ox) * ds / Math.sqrt(1 + m * m); 
+                dy = m * dx;
+            }
+            else {
+                dy = Math.sign(ty - oy) * ds;
+            }
+            pupil.setAttribute("cx", ox + dx);
+            pupil.setAttribute("cy", oy + dy);
+        }
+    }
+}   
 function createCircle(x, y, radius, color) {
     let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("cx", x);
     circle.setAttribute("cy", y);
     circle.setAttribute("r", radius);
     circle.setAttribute("fill", color);
-    return circle
+    return circle;
 }
+
 function createRectangle(x1, y1, w, h, color){
     let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     rect.setAttribute("x", x1);
