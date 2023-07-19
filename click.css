@@ -1,0 +1,7 @@
+.box {
+    max-width: 100vh;
+    max-height: 50vh;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+}
