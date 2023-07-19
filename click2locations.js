@@ -51,6 +51,7 @@ function createCircle(x, y, radius, color) {
     circle.setAttribute("fill", color);
     return circle
 }
+
 function createRectangle(x1, y1, w, h, color){
     let rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     rect.setAttribute("x", x1);
@@ -63,5 +64,11 @@ function createRectangle(x1, y1, w, h, color){
     return rect;
 
 }
-
-
+let pupil = document.getElementsByClassName("pupil")
+canvas.addEventListener('mousemove', move, false)
+function move(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    canvas.style.left = x + "px";
+    canvas.style.top = y + "px";
+}
