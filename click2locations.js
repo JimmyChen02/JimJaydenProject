@@ -11,6 +11,39 @@ let eyeSpacing = 25; //from center of head
 let canvas = document.getElementsByClassName("box")[0];
 canvas.addEventListener('click', addRandomGhost, false);
 function addRandomGhost(event) {
+<<<<<<< HEAD
+    let cx = event.offsetX
+    let cy = event.offsetY
+    let color = color(Math.floor(colors.length * Math.random()));
+    let ghost = document.getElementsByTagName("svg").createElementNS("http://www.w3.org/2000/svg");
+    ghost.appendChild.createCircle(cx, cy, headRadius, color);
+    let body = document.createElementNUS("http://www.w3.org/2000/svg", "rect");
+    
+    body.setAttribute("x", (cx-60).toString());
+    body.setAttribute("y", (cy).toString());
+    body.setAttribute("width", bodyWidth);
+    body.setAttribute("height", bodyHeight);
+}
+
+// movement
+
+let pupil = document.getElementsByClassName("pupil")
+svg.addEventListener('mousemove', move, false)
+function move(event) {
+    let dx = 0;
+    let dy = 0;
+    if (tx != ox) {
+        let m = (ty - oy) / (tx - ox);
+        dx = Math.sign(tx - ox) * ds / Math.sqrt(1 + m * m);
+        dy = m * dx;
+    }
+    else {
+        dy = Math.sign(ty -oy)*ds;
+    }
+    let x = ox + dx;
+    let y = oy + dy; 
+}
+=======
     let cx = event.offsetX;
     let cy = event.offsetY;
     let color = colors[Math.floor(colors.length * Math.random())];
@@ -41,3 +74,4 @@ function createCircle(x, y, radius, color) {
 }
 
 
+>>>>>>> ad95e64bb67a84dbb08e46dcd277308019f8869f
